@@ -12,3 +12,5 @@ POST query to *http://162.55.189.72:14005/input* with JSON body:
    "query": "What is life?"
 }
 ```
+# Indices update
+bash /root/final/update_indices.sh
