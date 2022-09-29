@@ -40,7 +40,7 @@ def get_data():
                 json={'emb':input_emb.tolist() }
             ).text)
 
-        match = resp['best_match']
+        match = resp['best_recommendation']
         cluster = resp['cluster_id']
 
         return jsonify(best_match=match, cluster=cluster)
