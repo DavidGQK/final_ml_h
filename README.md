@@ -2,7 +2,7 @@
 
 # Deploy
 1. bash /root/final/scripts/build_all.sh
-2. bash /root/final/scripts/docker_registry.sh - залив докер образов в registry
+2. bash /root/final/scripts/docker_registry.sh
 3. bash /root/final/start.sh
 
 # Example of using:
