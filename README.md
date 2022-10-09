@@ -14,3 +14,6 @@ POST query to *http://162.55.189.72:14005/input* with JSON body:
 ```
 # Indices update
 bash /root/final/update_indices.sh
+
+# Type of model
+TF universal-sentence-encoder-large model is used for embeddings [*https://tfhub.dev/google/universal-sentence-encoder-large/5*]
