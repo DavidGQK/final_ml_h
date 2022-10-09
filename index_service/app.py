@@ -25,14 +25,23 @@ def get_neighbours(input_emb):
     dists, neigh_ind = index.search(input_emb.reshape(1, -1), 20)
     neigh_ind = neigh_ind.flatten()
     neigh_emb = np.array([index.reconstruct(int(ind)) for ind in neigh_ind], dtype='float32')                  
-    argmax_closest_emb = predict_match(neigh_emb)
+    argmax_closest_emb = predict_match(neigh_emb, input_emb.reshape(1, -1))
     best_match_ind = neigh_ind[argmax_closest_emb]
     best_match_sentence = raw_sentences[str(best_match_ind)]
 
     return best_match_sentence
 
-def predict_match(neigh_emb):
-    return np.random.randint(0, len(neigh_emb))
+def predict_match(neigh_emb, input_emb):
+    # return np.random.randint(0, len(neigh_emb))
+    # There should be a good ranking model
+    max_cos_sim = -1
+    idx_emb = None
+    for idx, emb in enumerate(neigh_emb):
+        cos_sim = np.dot(input_emb, emb)/(np.linalg.norm(input_emb)*np.linalg.norm(emb))
+        if cos_sim > max_cos_sim:
+            max_cos_sim = cos_sim
+            idx_emb = idx
+    return idx_emb
 
 
 if __name__ == "__main__":
