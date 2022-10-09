@@ -27,5 +27,5 @@ bash /root/final/update_indices.sh
 TF universal-sentence-encoder-large model is used for embeddings [*https://tfhub.dev/google/universal-sentence-encoder-large/5*]
 
 # Failover
-Failover is realized by using several replicas. <br />
+Failover is realized by using several replicas <br />
 All indices lie on two VMs
