@@ -1,4 +1,4 @@
-# final_ml_h
+# QA recommendation system
 
 # Deploy
 1. bash /root/final/scripts/build_all.sh
