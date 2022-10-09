@@ -24,17 +24,12 @@ def get_best_from_k():
 def get_neighbours(input_emb):
     dists, neigh_ind = index.search(input_emb.reshape(1, -1), 20)
     neigh_ind = neigh_ind.flatten()
-    neigh_emb = np.array([index.reconstruct(int(ind)) for
-                          ind in neigh_ind], dtype='float32')
+    neigh_emb = np.array([index.reconstruct(int(ind)) for ind in neigh_ind], dtype='float32')                  
     argmax_closest_emb = predict_match(neigh_emb)
     best_match_ind = neigh_ind[argmax_closest_emb]
-
-    # if app is down
-    # best_match_sentence = raw_sentences[best_match_ind]
     best_match_sentence = raw_sentences[str(best_match_ind)]
 
     return best_match_sentence
-
 
 def predict_match(neigh_emb):
     return np.random.randint(0, len(neigh_emb))

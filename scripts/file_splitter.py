@@ -1,3 +1,5 @@
+# Script for processing input files to separate cluster files
+
 import numpy as np
 import json
 import faiss
@@ -5,12 +7,9 @@ import joblib
 import os
 import pickle
 
-# Script for processing input files to separate cluster files
-
 dim = 512
 
 for dg in [1, 2]:
-
     with open(f'data/clusters_use_dg{dg}.json') as f:
         clusters = json.load(f)
     os.makedirs(f'dgs/dg_{dg}', exist_ok=True)
@@ -21,7 +20,6 @@ for dg in [1, 2]:
             json.dump(clusters[str(clust_id)], f)
 
 for dg in [1, 2]:
-
     with open(f'data/clusters_use_dg{dg}.json') as f:
         clusters = json.load(f)
 
@@ -39,6 +37,5 @@ for dg in [1, 2]:
 for dg in [1, 2]:
     with open(f'data/clusters_centers_use_dg{dg}.pkl', 'rb') as f:
         clusters_centers = pickle.load(f)
-
         clust_centers_m = np.array([clusters_centers[str(i)] for i in range(4)])
         np.save(f'dgs/dg_{dg}/clust_centers', clust_centers_m)

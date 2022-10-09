@@ -11,6 +11,6 @@ docker push 162.55.189.72:5000/gateway
 docker tag index_service 162.55.189.72:5000/index_service
 docker push 162.55.189.72:5000/index_service
 
-# loading tf_random
-docker tag tf_random 162.55.189.72:5000/tf_random
-docker push 162.55.189.72:5000/tf_random
+# loading tf_model
+docker tag tf_model 162.55.189.72:5000/tf_model
+docker push 162.55.189.72:5000/tf_model
