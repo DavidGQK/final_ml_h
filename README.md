@@ -12,6 +12,7 @@ POST query to *http://162.55.189.72:14005/input* with JSON body:
     "query": "text"
 }
 ```
+Answer:
 ```
 {
     "best_match": "text",
